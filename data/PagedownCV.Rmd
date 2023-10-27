@@ -41,9 +41,9 @@ links <- c()
 # Now we source two external scripts. One contains functions for building the
 # text output and the other loads up our data from either googlesheets or csvs
 # Functions for building sections from CSV data
-source('parsing_functions.R') 
+source('C:\\Users\\u1159489\\Box\\MyVitae\\Vitae\\parsing_functions.R') 
 # Load data for CV/Resume
-source('gather_data.R')
+source("C:\\Users\\u1159489\\Box\\MyVitae\\Vitae\\gather_data.R")
 # Now we just need to filter down the position data to include less verbose
 # categories and only the entries we have designated for the resume
 position_data <- position_data %>% 
@@ -165,7 +165,7 @@ position_data %>% print_section('pub')
 Manuscripts Under Review {data-icon=glasses}
 --------------------------------------------------------------------------------
 
-### Tissue-specific mitochondrial toxicity of cigarette smoke concentrate: consequence to oxidative phosphorylation
+### Mitochondrial Membrane Lipids in the Regulation of Bioenergetics
 
 N/A
 
@@ -173,9 +173,9 @@ N/A
 
 N/A
 
-**ST Decker**, AA Matias, AE Cuadra, ME Erol, C Serviente, K Fenelon, G Layec
+**ST Decker**, Vance J, Funai K
 
-Under review in <i>AJP - Heart & Circ Physiol</i>
+Under review in <i>Nature Reviews Molecular Cell Biology</i>
 
 
 
@@ -328,6 +328,27 @@ Waco, Texas
 Funding {data-icon=dollar-sign}
 --------------------------------------------------------------------------------
 
+### Research Development Award
+
+National Kidney Foundation of Utah & Idaho
+
+N/A
+
+2023
+
+Awarded $15,000 direct funds
+
+### T32 Metabolism Postdoctoral Fellowship
+
+University of Utah Diabetes & Metabolism Research Center
+
+N/A
+
+2023
+
+Awarded
+
+
 ### Research Travel Award Recipient
 
 UMass Amherst Department of Kinesiology
@@ -389,12 +410,6 @@ Nacogdoches, Texas
 2014
 
 
-
-
-Teaching Experience {data-icon=chalkboard-teacher}
---------------------------------------------------------------------------------
-
-
 ::: aside
 
 __* Denotes Instructor of Record__
@@ -422,6 +437,11 @@ students to achieve higher learning
 outcomes.
 
 :::
+
+
+
+Teaching Experience {data-icon=chalkboard-teacher}
+--------------------------------------------------------------------------------
 
 
 ### KIN 272 - Anatatomy and Physiology II*
@@ -547,6 +567,15 @@ Schröcken, Austria
 Trainees {data-icon=users}
 --------------------------------------------------------------------------------
 
+### Precious Oporum (Graduate)
+
+Trained how to collect skeletal muscle mitochondrial respiration data using the
+Oxygraph O2K, mouse handling, statistical methodology, and general lab practices.
+
+N/A
+
+Present - 2023
+
 ### Alexs Matias (Graduate)
 
 Trained how to collect skeletal muscle mitochondrial respiration data using the
@@ -555,7 +584,7 @@ Ultrasound.
 
 N/A
 
-Present - 2019
+2022 - 2019
 
 
 ### Enes Erol (Graduate)
@@ -566,8 +595,16 @@ Ultrasound.
 
 N/A
 
-Present - 2020
+2023 - 2020
 
+
+### Venisia Paula (Undergraduate)
+
+Trained how to collect skeletal muscle mitochondrial respiration data using the Oxygraph O2K.
+
+N/A
+
+Present - 2023
 
 ### Sean Bannon (Undergraduate)
 
@@ -575,27 +612,27 @@ Present - 2020
 
 N/A
 
-Present - 2021
+2023 - 2021
 
 ### Mia Calderone (Undergraduate)
 
-Trained how to collect skeletal muscle mitochondrial respiration data using the Oxygraph O2K and the assessment of vascular function using Doppler Ultrasound
+Trained how to collect skeletal muscle mitochondrial respiration data using the Oxygraph O2K and the assessment of vascular function using Doppler Ultrasound.
 
 N/A
 
-Present - 2020
+2022 - 2020
 
 ### Jack Madden (Undergraduate)
 
-Trained how to collect skeletal muscle mitochondrial respiration data using the Oxygraph O2K
+Trained how to collect skeletal muscle mitochondrial respiration data using the Oxygraph O2K.
 
 N/A
 
-Present - 2020
+2022 - 2020
 
 ### Jyotika Vallurupalli (Undergraduate)
 
-**Honors Thesis:** Investigating the Roles of COVID-19 on Vascular Funciton", "Trained the assessment of vascular function using Doppler Ultrasound and continuous non-invasive arterial pressure
+**Honors Thesis:** Investigating the Roles of COVID-19 on Vascular Funciton", "Trained the assessment of vascular function using Doppler Ultrasound and continuous non-invasive arterial pressure.
 
 N/A
 
@@ -603,7 +640,7 @@ N/A
 
 ### Sebastien Rauch (Undergraduate)
 
-**Honors Thesis:** Validity and Specificity of Tetramethylrhodamine, Methyl Ester (TMRM) Dye in Mice Gastrocnemius Muscle Fiber Bundles for Assessing Mitochondrial Membrane Potential
+**Honors Thesis:** Validity and Specificity of Tetramethylrhodamine, Methyl Ester (TMRM) Dye in Mice Gastrocnemius Muscle Fiber Bundles for Assessing Mitochondrial Membrane Potential.
 
 N/A
 

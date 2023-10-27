@@ -1,5 +1,5 @@
 ---
-title: "<b>Stephen Decker Ph.D., ACSM-RCEP</b>"
+title: "<b>Stephen Decker, Ph.D., ACSM-RCEP</b>"
 output: 
   flexdashboard::flex_dashboard:
     orientation: rows
@@ -59,9 +59,49 @@ knitr::include_graphics("data/images/Stephen_Decker.png")
 
 ###
 
-I joined the Funai lab in March 2023 as a Postdoctoral Research Associate in the Molecular Medicine Program at the University of Utah, focusing on understanding X-linked Alport Syndrome - a rare hereditary condition that results in the loss of glomerular, ocular, and cochlear basement membranes and premature kidney failure. I received my Ph.D. in Kinesiology with an emphasis in Human Physiology at the University of Massachusetts Amherst. [My dissertation work](https://stdecker.github.io/Dissertation_Dasboard/) focused on the direct effects of cigarette smoke on mitochondrial function in muscle, heart, and vascular tissues. In my free time, I enjoys exploring the natural beauty of Utah with my wife, Rachel, and his daughters, Allie and Kyra, trail running, smoking my family-favorite BBQ brisket and ribs, watching/playing baseball, and traveling/visiting my family back home in Houston, TX.  
+#### About Me
+
+I joined the Funai lab in March 2023 as a Postdoctoral Research Associate in the Molecular Medicine Program at the University of Utah, focusing on understanding X-linked Alport Syndrome - a rare hereditary condition that results in the loss of glomerular, ocular, and cochlear basement membranes and premature kidney failure. I received my Ph.D. in Kinesiology with an emphasis in Human Physiology at the University of Massachusetts Amherst. [My dissertation work](https://stdecker.github.io/Dissertation_Dashboard/) focused on the direct effects of cigarette smoke on mitochondrial function in muscle, heart, and vascular tissues. In my free time, I enjoys exploring the natural beauty of Utah with my wife, Rachel, and his daughters, Allie and Kyra, trail running, smoking my family-favorite BBQ brisket and ribs, watching/playing baseball, and traveling/visiting my family back home in Houston, TX.
+
+## Row
+
+###
+
+#### Expertise and Skills
+
+I have skills in data analysis using open-source platforms (mainly R, RStudio, and Shiny). I am self-taught in data analysis tasks (hypothesis testing, A/B testing, frequentist and Bayesian methods) and have some experience in bioinformatics data processing and analysis (RNAseq using Bioconductor packages). 
+<br>
+<br>
+I also have experience in developing Shiny applications, dashboards, and interactive presentations. As part of my postdoctoral training, I was the sole developer of 2 Shiny applications: one to automate the measurment of protein concentration following a BCA assay ([found here](https://github.com/stdecker/ProteinQuantification-BCA-Western)) and a second to improve post-processing of ATP production measurements using a fluorometric-based assay ([found here](https://github.com/stdecker/FM4_ATP_Analysis)). In addition to these applications, I developed a semi-automated workflow using Excel and R to improve post-processing of mitochondrial respiration data, as well as a standard analysis workflow of statistical methodology and data visualization using RMarkdown ([found here](https://github.com/stdecker/Oroboros-O2K-Analysis])). Last, I created an interactive dashboard using a combination of Flexdashboard, R Shiny, and ggiraph to display all of the data I collected during my Ph.D. dissertation projects ([found here](https://stdecker.github.io/Dissertation_Dashboard/)). All of these data are freely available and available on my [GitHub](https://github.com/stdecker).
+
+## Row
+
+###
+
+#### Why R?
+
+I taught myself R for myriad reasons. First, I was a poor grad student in need of a good (free) statistical analysis program that could do complex analysis (i.e., dose-response curves and Michaelis-Menten kinetics), more modern nonparapetric analyses (ART ANOVA), and preferrably, one that could also handle the generation of nice visuals. Most options that could handle these needs were either too expensive or unavailable for use at my university. Thus, I began the process of teaching myself R. I began by performing simple data anlysis (t-tests and ANOVAS) and tidying tasks using the Tidyverse, then increasing the complexity of my tasks to kinetics analyses, Shiny apps, and dashboard generation. 
+<br>
+<br>
+Second, I strongly believe in the principles that surround R and the R community - namely the promotion of free and open-source information to drive decision making. I strongly believe that the data and information generated from complex scientific endeavors has no benefit to anybody if it is sheltered, hidden, or inaccessible by means such as gatekeeping and/or paywalls. 
+<br>
+<br>
+Third, I recognize that while I maintain a strong expertise in biological sciences and data analysis, I am still only human. I must acknowledge that, at times, I am prone to making errors in my judgement and analysis, and my knowledge is limited to only the things that I know. Therefore, it is important that, in the cases where I do err, that these mistakes are able to be improved or fixed to allow for better interpretation of these results. As a scientist and general problem solver, correction of errors in my data analysis methods will only lead to beneficial outcomes in the problems that I am trying to solve, thereby generating the best outcome possible.
+
+## Row
+
+```{r}
+library(slickR)
+
+slickR(
+    list.files("data/images/slide/", full.names = TRUE)) +
+  settings(dots = T, autoplay = T, autoplaySpeed = 5000)
+
+```
+
 
 # Publications
+
 
 ```{r include=FALSE}
 library(stringr)
@@ -96,67 +136,141 @@ for(y in c("LkGwnXOMwfcC",
 
 pubs$first_author[which(pubs$title == "The receptor for advanced glycation end products (RAGE) is involved in mitochondrial function and cigarette smoke-induced oxidative stress")] <- TRUE
 
-pubs$author <- stringr::str_replace(pubs$author, "ST Decker", "**ST Decker**")
-
 fa_list <- subset(pubs, first_author == TRUE)
+
+
 coa_list <- subset(pubs, first_author == FALSE)
 
 ```
 
-## Row
+## Column
 
-### First Author
+###
 
-### Co-Author
+#### First Author
+
+```{r}
+fa_list$year <- as.character(fa_list$year)
+
+flextable::flextable(fa_list[c(1:3, 6)]) |>
+  flextable::autofit() |> 
+  flextable::theme_zebra() |>
+  flextable::italic(j = 3) |> 
+  flextable::set_header_labels("title" = 'Title', 'author' = 'Author', 'journal' = 'Journal', 'year' = 'Year')
+
+```
+
+## Column
+
+###
+
+#### Co-Author
+
+```{r}
+coa_list$year <- as.character(coa_list$year)
+
+flextable::flextable(coa_list[c(1:3, 6)]) |>
+  flextable::autofit() |> 
+  flextable::theme_zebra() |>
+  flextable::italic(j = 3) |> 
+  flextable::set_header_labels("title" = 'Title', 'author' = 'Author', 'journal' = 'Journal', 'year' = 'Year')
+```
 
 
 # Talks
 
+###
+
+#### Connecting the Dots of the Power Grid: Assessing mitochondrial membrane potential and ADP/ATP translocase activity in permeabilized skeletal muscle fiber bundles
+
+UMass Kinesiology Seminar Series
+
+Amherst, Massachusetts
+
+2021
+
+
+
+#### The Physiological Role of Sirtuins: A Target for Aging or More Hype?
+
+UMass Kinesiology Seminar Series
+
+Amherst, Massachusetts
+
+2019
+
+
+
+#### Effects of Tetrahydrobiopterin on Limb Blood Flow and Muscle Metabolism in Patients with COPD
+
+ISMRM Annual Meeting
+
+Montreal, Quebec
+
+2019
+
+
+#### Effects of High-Intensity Interval Training on Postprandial Lipemia and Glycemia
+
+Texas ACSM
+
+College Station, Texas
+
+2016
+
+
+#### Effects of Hot and Temperate Environments on Executive Function Tasks During Moderate and Intense Exercise
+
+SFASU Undergraduate Research Conference
+
+Nacogdoches, Texas
+
+2014
 
 # Teaching
 
 ## Row {data-height="200"}
 
-
 ### University of Massachusetts Amherst
 
-#### KIN 272 - Anatatomy and Physiology II*
 
-#### Kin 470 - Exercise Physiology Lab
+##### KIN 272 - Anatatomy and Physiology II*
 
-#### KIN 270 - Anatatomy and Physiology I Lab
+##### Kin 470 - Exercise Physiology Lab
 
-#### Kin 570 - Advanced Exercise Physiology
+##### KIN 270 - Anatatomy and Physiology I Lab
 
-#### Kin 110 - Human Performance and Nutrition
+##### Kin 570 - Advanced Exercise Physiology
+
+##### Kin 110 - Human Performance and Nutrition
 
 
 ## Row {data-height="150"}
 
 ### Stephen F. Austin State University
 
-#### Kin 100 - Physical Fitness Concepts and Activities*
+
+##### Kin 100 - Physical Fitness Concepts and Activities*
 
 
-#### KIN 120 - Foundations of Kinesiology*
+##### KIN 120 - Foundations of Kinesiology*
 
 
-#### KIN 200 - Fitness Activites for Life*
+##### KIN 200 - Fitness Activites for Life*
 
 
 ## Row {data-height="20"}
 
+### American Red Cross
 
-### American Red Cross CPR and Lifeguarding Instructor
+#### American Red Cross CPR and Lifeguarding Instructor
 
 
 ## Row {data-height="20"}
 
 \* Denotes Instructor of Record
 
-# Publications
 
-# Blog
 
 # CV
 
@@ -165,7 +279,7 @@ coa_list <- subset(pubs, first_author == FALSE)
 ```{r}
 library(htmltools)
 
-htmltools::tags$iframe(src = './data/DeckerS_CV.html', style='width:100%; height: 600px')
+htmltools::tags$iframe(src = './data/DeckerS_CV.pdf', style='width:100%; height: 600px')
 
 ```
 
