@@ -1,4 +1,4 @@
-# Stephen Decker
+# Personal Website for Stephen Decker, Ph.D.
 
 Resources for building my personal website, found here: [https://stdecker.github.io/stephendecker/](https://stdecker.github.io/stephendecker/).
 
