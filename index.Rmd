@@ -37,6 +37,7 @@ output:
 ## Column {.sidebar data-width="270"}
 
 ###
+
 ```{r, img-with-knitr, echo=FALSE, fig.align='center', out.extra='class="myimg"'}
 
 knitr::include_graphics("data/images/Stephen_Decker.png")
@@ -44,6 +45,10 @@ knitr::include_graphics("data/images/Stephen_Decker.png")
 
 ### Connect with me
 `r fontawesome::fa("location-dot")` Salt Lake City, Utah
+<br>
+`r fontawesome::fa("linkedin")` [<span style="color:#333333">Stephen Decker</span>](https://www.linkedin.com/in/deckerst/)
+<br>
+`r fontawesome::fa("bluesky")` [<span style="color:#333333">decker-st.bsky.social</span>](https://bsky.app/profile/decker-st.bsky.social)
 <br>
 `r fontawesome::fa("twitter")` [<span style="color:#333333">@decker_st</span>](https://twitter.com/decker_st)
 <br>
@@ -106,7 +111,11 @@ slickR(
 ```{r include=FALSE}
 library(stringr)
 library(dplyr)
-pubs <- scholar::get_publications("e-bkTh8AAAAJ") %>% 
+library(scholar)
+library(flextable)
+library(ftExtra)
+
+pubs <- scholar::get_publications("NVkoEucAAAAJ&hl", flush = T) %>% 
   dplyr::mutate(author = author %>% 
                   as.character %>% 
                   stringr::str_trim(),
@@ -114,27 +123,9 @@ pubs <- scholar::get_publications("e-bkTh8AAAAJ") %>%
                                          TRUE ~ FALSE)) %>% 
   dplyr::arrange(desc(year))
 
-
-for(y in c("LkGwnXOMwfcC", 
-                                  "IjCSPb-OGe4C", 
-                                  "zYLM7Y9cAGgC",
-                                  "Y0pCki6q_DkC",
-                                  "W7OEmFMy1HYC",
-                                  "Tyk-4Ss8FVUC",
-                                  "d1gkVwhDpl0C",
-                                  "u-x6o8ySG0sC",
-                                  "u5HHmVD_uO8C",
-                                  "qjMakFHDy7sC",
-                                  "2osOgNQ5qMEC",
-                                  "_FxGoFyzp5QC",
-                                  "UeHWp8X0CEIC",
-                                  "0EnyYjriUFMC"
-)){
-  
-  pubs <- pubs[!grepl(paste(y), pubs$pubid),]
-}
-
 pubs$first_author[which(pubs$title == "The receptor for advanced glycation end products (RAGE) is involved in mitochondrial function and cigarette smoke-induced oxidative stress")] <- TRUE
+
+pubs$author <- stringr::str_replace(pubs$author, "ST Decker", "**ST Decker**")
 
 fa_list <- subset(pubs, first_author == TRUE)
 
@@ -152,11 +143,12 @@ coa_list <- subset(pubs, first_author == FALSE)
 ```{r}
 fa_list$year <- as.character(fa_list$year)
 
-flextable::flextable(fa_list[c(1:3, 6)]) |>
+flextable::flextable(fa_list[c(1:3, 6, 5)]) |>
   flextable::autofit() |> 
-  flextable::theme_zebra() |>
+  flextable::theme_vanilla() |>
   flextable::italic(j = 3) |> 
-  flextable::set_header_labels("title" = 'Title', 'author' = 'Author', 'journal' = 'Journal', 'year' = 'Year')
+  flextable::set_header_labels("title" = 'Title', 'author' = 'Author', 'journal' = 'Journal', 'year' = 'Year', 'cites' = 'Citations') %>%
+  ftExtra::colformat_md()
 
 ```
 
@@ -169,11 +161,13 @@ flextable::flextable(fa_list[c(1:3, 6)]) |>
 ```{r}
 coa_list$year <- as.character(coa_list$year)
 
-flextable::flextable(coa_list[c(1:3, 6)]) |>
+flextable::flextable(coa_list[c(1:3, 6, 5)]) |>
   flextable::autofit() |> 
-  flextable::theme_zebra() |>
+  flextable::theme_vanilla() |>
   flextable::italic(j = 3) |> 
-  flextable::set_header_labels("title" = 'Title', 'author' = 'Author', 'journal' = 'Journal', 'year' = 'Year')
+  flextable::set_header_labels("title" = 'Title', 'author' = 'Author', 'journal' = 'Journal', 'year' = 'Year', 'cites' = 'Citations') %>%
+  ftExtra::colformat_md()
+
 ```
 
 
@@ -229,6 +223,14 @@ Nacogdoches, Texas
 
 # Teaching
 
+## Row {data-height="75"}
+
+### University of Utah
+
+
+##### Biol 2420 - Human Physiology*
+
+
 ## Row {data-height="200"}
 
 ### University of Massachusetts Amherst
@@ -263,7 +265,7 @@ Nacogdoches, Texas
 
 ### American Red Cross
 
-#### American Red Cross CPR and Lifeguarding Instructor
+##### American Red Cross CPR and Lifeguarding Instructor*
 
 
 ## Row {data-height="20"}
